@@ -1,4 +1,7 @@
+import java.io.File;
 import java.util.Date;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class FileMakerCommon {
 
@@ -6,6 +9,7 @@ public class FileMakerCommon {
     private String sentence;
     private String book;
     private Date date;
+    private String fileName;
 
     public FileMakerCommon()
     {
@@ -20,6 +24,17 @@ public class FileMakerCommon {
         this.book = book;
         this.date = date;
     }
+
+    public void makeFile()
+    {
+        File file = new File(fileName + ".co");
+        if (file.exists())
+        {
+
+        }
+    }
+
+    //Setters and Getters
 
     public void setWord(String word) {
         this.word = word;
@@ -37,6 +52,10 @@ public class FileMakerCommon {
         this.date = date;
     }
 
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public String getWord() {
         return word;
     }
@@ -51,5 +70,9 @@ public class FileMakerCommon {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 }
