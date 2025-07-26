@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.Date;
+import java.util.LinkedList;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,24 +9,32 @@ public class FileMakerCommon {
 
     private String word;
     private String sentence;
+    private String meaning;
     private String book;
     private Date date;
     private String fileName;
+
+    //Items will be stored here
+    public static LinkedList<String> listOfItems = new LinkedList<>();
 
     public FileMakerCommon()
     {
         System.out.println("First Constructor Called");
     }
 
-    public FileMakerCommon(String word, String sentence, String book, Date date)
+    public FileMakerCommon(String word, String sentence, String book, Date date, String meaning)
     {
         System.out.println("Second Constructor Called");
         this.word = word;
         this.sentence = sentence;
+        this.meaning = meaning;
         this.book = book;
         this.date = date;
     }
 
+
+
+    //Check if file is empty
     boolean isFileEmpty(File file)
     {
         return file.length() == 0;
@@ -40,10 +49,31 @@ public class FileMakerCommon {
         }
     }
 
+    String formatter(String word, String meaning, String sentence, String book, Date date) {
+        StringBuilder sbFormatter = new StringBuilder();
+        sbFormatter
+                .append("\n")
+                .append("#").append(word).append("#\n")
+                .append("&").append(meaning).append("&\n")
+                .append("$").append(sentence).append("$\n")
+                .append("@").append(book).append("@\n")
+                .append("%").append(date).append("%\n")
+                .append("\n");
+        return sbFormatter.toString();
+    }
+
+
+
+
     //Setters and Getters
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public void setMeaning(String meaning)
+    {
+        this.meaning = meaning;
     }
 
     public void setSentence(String sentence) {
@@ -64,6 +94,11 @@ public class FileMakerCommon {
 
     public String getWord() {
         return word;
+    }
+
+    public String getMeaning()
+    {
+        return meaning;
     }
 
     public String getSentence() {
