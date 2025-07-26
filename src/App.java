@@ -6,6 +6,7 @@ public class App {
     public static Display display = new Display();
     public static InputStreamReader inputStreamReader= new InputStreamReader(System.in);
     public static BufferedReader reader = new BufferedReader(inputStreamReader);
+    public static FileMakerCommon fileMakerCommon = new FileMakerCommon();
 
 
     void RunProgram()

@@ -2,6 +2,7 @@ import java.io.File;
 import java.util.Date;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class FileMakerCommon {
 
@@ -25,9 +26,14 @@ public class FileMakerCommon {
         this.date = date;
     }
 
+    boolean isFileEmpty(File file)
+    {
+        return file.length() == 0;
+    }
+
     public void makeFile()
     {
-        File file = new File(fileName + ".co");
+        File file = new File(fileName + ".simQC");
         if (file.exists())
         {
 
